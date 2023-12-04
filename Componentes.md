@@ -49,8 +49,8 @@ Seccion del sistema que albergara gastos que aun no son realizados (ahorros) o y
 <ul>
   <li>La clasificacion sera Ahorro o Deuda</li>
   <li>Los ahorros deben poderse modificar desde gastos</li>
-  <li>Los ahorros y deudas deben de mostrar los activos</li>
-  <li>Se podran consultar los ahorros y deudas historicos</li>
+  <li>Los ahorros y deudas deben de mostrar solo los actuales activos</li>
+  <li>Se podran consultar los ahorros y deudas historicos, con un task desmarcado por defecto</li>
 </ul>
 
 
