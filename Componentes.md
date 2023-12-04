@@ -67,5 +67,5 @@ Seccion del sistema que perminta al usuario una visualizacion estadistica y senc
 <ul>
   <li>Los rubros que podran ser revisados en histogramas seran: Gastos e Ingresos</li>
   <li>El histograma mostrara tiempo en las absisas y dinero en las ordenadas</li>
-  <li>Las consultas podran comparar los dias de las semanas(l a d actual), o los meses del año(ene a dic actual)</li>
+  <li>Las consultas podran comparar los dias de las semanas (l a d actual), o los meses del año (ene a dic actual)</li>
 </ul>
