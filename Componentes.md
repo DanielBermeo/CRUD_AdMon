@@ -10,7 +10,7 @@ Seccion del sistema que guardara las fugas o salidas de dinero
 
 ### Consideraciones
 <ul>
-  <li>Los gastos de clasifican en Buenos, Malos y Justificados</li>
+  <li>Los gastos se clasifican en Buenos, Malos y Justificados</li>
   <li>Cuando un gasto sea un abono a un ahorro o deuda se debe actualizar automaticamente ese rubro</li>
   <li>Deben poderse registrar gastos que sean aplicados a los ahorros</li>
 </ul>
@@ -62,6 +62,7 @@ Seccion del sistema que perminta al usuario una visualizacion estadistica y senc
   <li>Periodo</li>
   <li>Rubro de revision</li>
 </ul>
+
 ### Consideraciones
 <ul>
   <li>Los rubros que podran ser revisados en histogramas seran: Gastos e Ingresos</li>
