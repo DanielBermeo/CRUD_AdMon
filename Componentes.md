@@ -1,5 +1,3 @@
-## SECCIONES
-
 ## GASTO
 Seccion del sistema que guardara las fugas o salidas de dinero
 
@@ -16,7 +14,7 @@ Seccion del sistema que guardara las fugas o salidas de dinero
   <li>Cuando un gasto sea un abono a un ahorro o deuda se debe actualizar automaticamente ese rubro</li>
   <li>Deben poderse registrar gastos que sean aplicados a los ahorros</li>
 </ul>
-___
+
 
 ## INGRESOS
 Seccion del sistema que guardara activos y pasivos que ingresen dinero
@@ -35,7 +33,7 @@ Seccion del sistema que guardara activos y pasivos que ingresen dinero
     <li>La meta se debe guardar como historico, podiendo consultar su alcance en el futuro</li>
   </ul>
 </ul>
-___
+
 
 ## DEUDAS y AHORROS
 Seccion del sistema que albergara gastos que aun no son realizados (ahorros) o ya realizados pero no costeados (deudas)
@@ -54,7 +52,7 @@ Seccion del sistema que albergara gastos que aun no son realizados (ahorros) o y
   <li>Los ahorros y deudas deben de mostrar los activos</li>
   <li>Se podran consultar los ahorros y deudas historicos</li>
 </ul>
-___
+
 
 ## GRAFICOS
 Seccion del sistema que perminta al usuario una visualizacion estadistica y sencilla de la informacion para la evaluacion de la misma
@@ -70,4 +68,3 @@ Seccion del sistema que perminta al usuario una visualizacion estadistica y senc
   <li>El histograma mostrara tiempo en las absisas y dinero en las ordenadas</li>
   <li>Las consultas podran comparar los dias de las semanas(l a d actual), o los meses del año(ene a dic actual)</li>
 </ul>
-___
