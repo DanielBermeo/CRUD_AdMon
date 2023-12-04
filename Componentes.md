@@ -57,7 +57,7 @@ Seccion del sistema que albergara gastos que aun no son realizados (ahorros) o y
 ## GRAFICOS
 Seccion del sistema que perminta al usuario una visualizacion estadistica y sencilla de la informacion para la evaluacion de la misma
 
-### Tabla
+### Filtro
 <ul>
   <li>Periodo</li>
   <li>Rubro de revision</li>
