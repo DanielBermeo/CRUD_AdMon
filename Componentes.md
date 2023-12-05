@@ -72,3 +72,10 @@ Seccion del sistema que perminta al usuario una visualizacion estadistica y senc
   <li>El histograma mostrara tiempo en las absisas y dinero en las ordenadas</li>
   <li>Las consultas podran comparar los dias de las semanas (l a d actual), o los meses del año (ene a dic actual)</li>
 </ul>
+
+## NOTAS EXTRA
+<ul>
+  <li>La interfaz inicial tentativa sera basada en la disponibilidad</li>
+  <li>La disponibilidad sera siempre la diferencia neta total de Gastos contra Ingresos</li>
+</ul>
+
