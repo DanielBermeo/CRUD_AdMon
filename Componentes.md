@@ -6,6 +6,7 @@ Seccion del sistema que guardara las fugas o salidas de dinero
   <li>Clasificacion</li>
   <li>Monto</li>
   <li>Concepto</li>
+  <li>Fecha</li>
 </ul>
 
 ### Consideraciones
@@ -23,6 +24,7 @@ Seccion del sistema que guardara activos y pasivos que ingresen dinero
 <ul>
   <li>Monto</li>
   <li>Concepto</li>
+  <li>Fecha</li>
 </ul>
 
 ### Consideraciones
@@ -43,6 +45,7 @@ Seccion del sistema que albergara gastos que aun no son realizados (ahorros) o y
   <li>Clasificacion</li>
   <li>Monto</li>
   <li>Concepto</li>
+  <li>Fecha</li>
 </ul>
 
 ### Consideraciones
