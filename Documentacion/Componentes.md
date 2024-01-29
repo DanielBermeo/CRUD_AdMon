@@ -1,5 +1,5 @@
-## GASTO
-Seccion del sistema que guardara las fugas o salidas de dinero
+## GASTOS
+Seccion del sistema que guardara las salidas de dinero
 
 ### Tabla
 <ul>
@@ -12,13 +12,13 @@ Seccion del sistema que guardara las fugas o salidas de dinero
 ### Consideraciones
 <ul>
   <li>Los gastos se clasifican en Buenos, Malos y Justificados</li>
-  <li>Cuando un gasto sea un abono a un ahorro o deuda se debe actualizar automaticamente ese rubro</li>
-  <li>Deben poderse registrar gastos que sean aplicados a los ahorros</li>
+  <li>Cuando un gasto sea un abono a una deuda se debe actualizar automaticamente el saldo activo de la deuda</li>
+  <li>Los gastos tomaran capital de rubros</li>
 </ul>
 
 
 ## INGRESOS
-Seccion del sistema que guardara activos y pasivos que ingresen dinero
+Seccion del sistema que registrara toda adquisicion monetaria
 
 ### Tabla
 <ul>
@@ -29,20 +29,17 @@ Seccion del sistema que guardara activos y pasivos que ingresen dinero
 
 ### Consideraciones
 <ul>
-  <li>Se podra contar con una meta mensual y debe de indicarse la diferencia de la meta con lo obtenido</li>
-  <ul>
-    <li>La meta debera indicar cual es su estado en el mes actual</li>
-    <li>La meta se debe guardar como historico, podiendo consultar su alcance en el futuro</li>
-  </ul>
+  <li>Los ingresos deberan aumentar el capital de los rubros</li>
+  <li>Cada ingreso ademas de concepto debera tener el rubro al que fue aportado</li>
 </ul>
 
 
-## DEUDAS y AHORROS
-Seccion del sistema que albergara gastos que aun no son realizados (ahorros) o ya realizados pero no costeados (deudas)
+## DEUDAS
+Registro de creditos obtenidos
 
 ### Tabla
 <ul>
-  <li>Clasificacion</li>
+  <li>Estado</li>
   <li>Monto</li>
   <li>Concepto</li>
   <li>Fecha</li>
@@ -50,10 +47,9 @@ Seccion del sistema que albergara gastos que aun no son realizados (ahorros) o y
 
 ### Consideraciones
 <ul>
-  <li>La clasificacion sera Ahorro o Deuda</li>
-  <li>Los ahorros deben poderse modificar desde gastos</li>
-  <li>Los ahorros y deudas deben de mostrar solo los actuales activos</li>
-  <li>Se podran consultar los ahorros y deudas historicos, con un task desmarcado por defecto</li>
+  <li>Las deudas seran desactivadas cuando su ultimo saldo activo de como resultado 0</li>
+  <li>Se deben de mostrar solo los actuales con estado activos</li>
+  <li>Se podran consultar las deudas historicas, con un task desmarcado por defecto</li>
 </ul>
 
 ## SALDOS
@@ -68,7 +64,27 @@ Tabla intermedia que permite una dinamica de comunicacion con historial entre la
 <ul>
   <li>Se debera crear un nuevo registro en saldos por cada que el usuario haga un abono desde gastos a deudas</li>
   <li>Dentro de la consulta de deudas se debe hacer una consulta cruzada que nos de el saldo ultimo de la deuda consultada</li>
+  <li>Se considerara saldo activo al mas reciente registro que contiene el id de esa deuda</li>
 </ul>
+
+## RUBROS
+Tabla catalogo que ademas contara con un valor variable (capital) para dinamica de tener o no 
+### Tabla
+<ul>
+  <li>Monto meta</li>
+  <li>Concepto</li>
+  <li>Capital</li>
+</ul>
+
+### Consideraciones
+<ul>
+  <li>Un rubro funge como division de los ingresos</li>
+  <li>Un rubro nunca podra ser negativo</li>
+  <li>Un rubro sera la fuente de alimentacion de los gastos</li>
+  <li>Por medio de los id de rubros y consultas cruzadas a gastos e ingresos obtenemos historicos</li>
+  <li>Se debera desarrollar graficos que permitan ver la pagina de rubros como metas a cumplir y su cumplimiento actual</li>
+</ul>
+
 
 ## GRAFICOS
 Seccion del sistema que perminta al usuario una visualizacion estadistica y sencilla de la informacion para la evaluacion de la misma
