@@ -56,6 +56,19 @@ Seccion del sistema que albergara gastos que aun no son realizados (ahorros) o y
   <li>Se podran consultar los ahorros y deudas historicos, con un task desmarcado por defecto</li>
 </ul>
 
+## SALDOS
+Tabla intermedia que permite una dinamica de comunicacion con historial entre la tabla gastos y deudas
+### Tabla
+<ul>
+  <li>Ids de cada tabla conectada</li>
+  <li>Saldo<>
+</ul>
+
+### Consideraciones
+<ul>
+  <li>Se debera crear un nuevo registro en saldos por cada que el usuario haga un abono desde gastos a deudas</li>
+  <li>Dentro de la consulta de deudas se debe hacer una consulta cruzada que nos de el saldo ultimo de la deuda consultada</li>
+</ul>
 
 ## GRAFICOS
 Seccion del sistema que perminta al usuario una visualizacion estadistica y sencilla de la informacion para la evaluacion de la misma
