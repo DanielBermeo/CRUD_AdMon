@@ -1,0 +1,110 @@
+-- Eliminar la base de datos AdMon si existe
+DROP DATABASE IF EXISTS AdMon;
+
+-- Crear la base de datos AdMon
+CREATE DATABASE AdMon;
+
+-- Usar la base de datos AdMon
+USE AdMon;
+
+-- Crear la tabla fondos
+CREATE TABLE fondos (
+    id_fondo INT AUTO_INCREMENT PRIMARY KEY,
+    monto INT,
+    nom_fondo VARCHAR(255) UNIQUE,
+    capital INT,
+CONSTRAINT no_negativo CHECK (capital >= 0 ),
+CONSTRAINT no_nulo CHECK (monto > 100 )
+);
+
+-- Crear la tabla ingresos
+CREATE TABLE ingresos (
+    id_ingreso INT AUTO_INCREMENT PRIMARY KEY,
+    fecha DATE  DEFAULT CURRENT_DATE,
+    monto INT,
+    concepto VARCHAR(255),
+    fondo_destino INT,
+    FOREIGN KEY (fondo_destino) REFERENCES fondos(id_fondo)
+);
+
+-- Crear la tabla gastos
+CREATE TABLE gastos (
+    id_gasto INT AUTO_INCREMENT PRIMARY KEY,
+    fecha DATE  DEFAULT CURRENT_DATE,
+    monto INT,
+    concepto VARCHAR(255),
+    clasificacion VARCHAR(50),
+    fondo_tomado INT,
+    FOREIGN KEY (fondo_tomado) REFERENCES fondos(id_fondo)
+);
+
+
+-- Crear la tabla deudas
+CREATE TABLE deudas (
+    id_deuda INT AUTO_INCREMENT PRIMARY KEY,
+    fecha DATE,
+    monto INT,
+    concepto VARCHAR(255),
+    estado BOOLEAN,
+    id_gasto INT,
+    FOREIGN KEY (id_gasto) REFERENCES gastos(id_gasto)		
+);
+
+-- Insercion de configuracion de Deuda
+INSERT INTO fondos (monto, nom_fondo, capital)
+VALUES 
+    (101, 'Deuda', 0);
+
+-- Insertar 5 fondos aleatorios
+INSERT INTO fondos (monto, nom_fondo, capital)
+VALUES 
+    (1000, 'Fondo A', 500),
+    (2000, 'Fondo B', 2000),
+    (1500, 'Fondo C', 1000),
+    (3000, 'Fondo D', 30),
+    (2500, 'Fondo E', 2000);
+
+-- Insertar 10 ingresos aleatorios
+INSERT INTO ingresos (fecha, monto, concepto, fondo_destino)
+VALUES 
+    ('2024-03-01', 2000, 'Ingreso 1', 1),
+    ('2024-03-02', 2500, 'Ingreso 2', 2),
+    ('2024-03-03', 1800, 'Ingreso 3', 3),
+    ('2024-03-04', 3000, 'Ingreso 4', 4),
+    ('2024-03-05', 2200, 'Ingreso 5', 5),
+    ('2024-03-06', 2800, 'Ingreso 6', 1),
+    ('2024-03-07', 3200, 'Ingreso 7', 2),
+    ('2024-03-08', 2700, 'Ingreso 8', 3),
+    ('2024-03-09', 3500, 'Ingreso 9', 4),
+    ('2024-03-10', 4000, 'Ingreso 10', 5);
+
+
+-- Insertar 10 gastos aleatorios con clasificación
+INSERT INTO gastos (fecha, monto, concepto, clasificacion, fondo_tomado) 
+VALUES 
+    ('2024-03-01', 1200, 'Compra de alimentos', 'Buena', 1),
+    ('2024-03-02', 2500, 'Pago de préstamo', 'Necesaria', 2),
+    ('2024-03-03', 800, 'Gastos de transporte', 'Innecesaria', 3),
+    ('2024-03-04', 3000, 'Compra de equipo', 'Buena', 4),
+    ('2024-03-05', 1800, 'Gastos de entretenimiento', 'Necesaria', 5),
+    ('2024-03-06', 2200, 'Pago de servicios', 'Innecesaria', 1),
+    ('2024-03-07', 2800, 'Gastos médicos', 'Buena', 2),
+    ('2024-03-08', 3100, 'Compra de ropa', 'Necesaria', 3),
+    ('2024-03-09', 2400, 'Gastos de educación', 'Innecesaria', 4),
+-- Gastos para programar deuda correctamente
+    ('2024-03-10', 500, 'Pago deuda 1', 'Buena', 5),
+    ('2024-03-15', 1000, 'Pago deuda 2', 'Buena', 5),
+    ('2024-03-20', 1500, 'Pago deuda 3', 'Buena', 1);	
+
+-- Insertar deudas
+INSERT INTO deudas (fecha, monto, concepto, estado, id_gasto) 
+VALUES 
+    ('2024-03-5', 5000, 'Deuda Inicio', 0, 5),
+    ('2024-03-10',4500 , 'Abono a deuda 1: Deuda Inicio', 0, 5),
+    ('2024-03-15', 3500 , 'Abono a deuda 2: Deuda Inicio', 0, 5),
+    ('2024-03-15', 2000 , 'Abono a deuda 3: Deuda Inicio', 1, 5),
+     
+-- Multideudas
+     ('2024-03-5', 4500, 'Celular', 1, 5),
+      ('2024-03-5', 2000, 'Deuda Moto', 1, 5),
+ ('2024-03-5', 5000, 'Deuda Escolar', 1, 5);
