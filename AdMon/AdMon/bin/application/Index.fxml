@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="499.0" prefWidth="638.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.IndexController">
+<Pane maxHeight="499.0" maxWidth="638.0" minHeight="498.0" minWidth="637.0" prefHeight="499.0" prefWidth="638.0" scaleShape="false" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.IndexController">
    <children>
       <TabPane prefHeight="499.0" prefWidth="638.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
@@ -78,6 +78,11 @@
                            </font>
                         </Button>
                         <Button fx:id="btnRegistrarGastoGnrl" layoutX="533.0" layoutY="290.0" mnemonicParsing="false" onAction="#registrarGastoGnrl" prefHeight="40.0" prefWidth="100.0" text="Registrar Gasto">
+                           <font>
+                              <Font name="Georgia" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btnPagarDeuda" layoutX="534.0" layoutY="339.0" mnemonicParsing="false" onAction="#pagarDeuda" prefHeight="40.0" prefWidth="100.0" text="Pagar Deuda">
                            <font>
                               <Font name="Georgia" size="12.0" />
                            </font>
@@ -167,7 +172,7 @@
                               <TableColumn fx:id="clmnFondoTomado" prefWidth="119.0" text="Fondo " />
                            </columns>
                         </TableView>
-                        <Button fx:id="btnRegistrarGasto" layoutX="524.0" layoutY="117.0" mnemonicParsing="false" onAction="#registrarIngreso" prefHeight="40.0" prefWidth="100.0" text="Registrar gasto">
+                        <Button fx:id="btnRegistrarGasto" layoutX="524.0" layoutY="117.0" mnemonicParsing="false" onAction="#registrarGasto" prefHeight="40.0" prefWidth="100.0" text="Registrar gasto">
                            <font>
                               <Font name="Georgia" size="12.0" />
                            </font>
@@ -209,7 +214,7 @@
                         </Label>
                         <TableView fx:id="tblSaldosActivos" layoutX="15.0" layoutY="123.0" prefHeight="144.0" prefWidth="616.0">
                           <columns>
-                            <TableColumn fx:id="clmnDeuda" prefWidth="292.0" text="Deuda perteneciente" />
+                            <TableColumn fx:id="clmnDeuda" prefWidth="292.0" text="Gasto Perteneciente" />
                             <TableColumn fx:id="clmnFechaSaldo" minWidth="4.0" prefWidth="169.0" text="Fecha de registro" />
                               <TableColumn fx:id="clmnMontoPendiente" prefWidth="154.0" text="Monto pendiente" />
                           </columns>
@@ -224,32 +229,26 @@
                               <Font name="Dubai Regular" size="22.0" />
                            </font>
                         </Label>
-                        <DatePicker fx:id="dateFechaBusquedaSaldo" layoutX="14.0" layoutY="345.0" />
-                        <Label layoutX="15.0" layoutY="313.0" prefHeight="22.0" prefWidth="94.0" text="Fecha">
+                        <DatePicker fx:id="dateFechaBusquedaSaldo" layoutX="153.0" layoutY="298.0" />
+                        <Label layoutX="154.0" layoutY="266.0" prefHeight="22.0" prefWidth="94.0" text="Fecha">
                            <font>
                               <Font name="Dubai Light" size="18.0" />
                            </font>
                         </Label>
-                        <TableView fx:id="tblBusquedaSaldos" layoutX="15.0" layoutY="377.0" prefHeight="75.0" prefWidth="613.0">
+                        <TableView fx:id="tblBusquedaSaldos" layoutX="15.0" layoutY="329.0" prefHeight="123.0" prefWidth="613.0">
                            <columns>
                               <TableColumn fx:id="clmnFechaSaldoB" prefWidth="153.0" text="Fecha de Registro" />
-                              <TableColumn fx:id="clmnDeudaB" prefWidth="269.0" text="Deuda perteneciente" />
-                              <TableColumn fx:id="clmnFondoPago" prefWidth="190.0" text="Fondo de pago" />
+                              <TableColumn fx:id="clmnDeudaB" prefWidth="269.0" text="Gasto Perteneciente" />
+                              <TableColumn fx:id="clmnFondoPago" prefWidth="190.0" text="Concepto" />
                            </columns>
                         </TableView>
-                        <Label layoutX="202.0" layoutY="313.0" prefHeight="22.0" prefWidth="94.0" text="Deuda">
+                        <Label layoutX="341.0" layoutY="266.0" prefHeight="22.0" prefWidth="94.0" text="Gasto">
                            <font>
                               <Font name="Dubai Light" size="18.0" />
                            </font>
                         </Label>
-                        <ComboBox fx:id="cmbSeleccDeuda" layoutX="202.0" layoutY="345.0" prefHeight="25.0" prefWidth="168.0" />
-                        <ComboBox fx:id="cmbSeleccFondo" layoutX="402.0" layoutY="345.0" prefWidth="150.0" />
-                        <Label layoutX="402.0" layoutY="313.0" prefHeight="22.0" prefWidth="94.0" text="Fondo">
-                           <font>
-                              <Font name="Dubai Light" size="18.0" />
-                           </font>
-                        </Label>
-                        <Button fx:id="btnBuscarSaldos" layoutX="153.0" layoutY="274.0" mnemonicParsing="false" onAction="#buscarSaldos" prefHeight="40.0" prefWidth="109.0" text="Buscar">
+                        <ComboBox fx:id="cmbSeleccDeuda" layoutX="341.0" layoutY="298.0" prefHeight="25.0" prefWidth="168.0" />
+                        <Button fx:id="btnBuscarSaldos" layoutX="519.0" layoutY="283.0" mnemonicParsing="false" onAction="#buscarSaldos" prefHeight="40.0" prefWidth="109.0" text="Buscar">
                            <font>
                               <Font name="Georgia" size="12.0" />
                            </font>
@@ -280,24 +279,18 @@
                               <Font name="Georgia" size="12.0" />
                            </font>
                         </Button>
-                        <TextField fx:id="txtFieldConceptoFiltroHD" layoutX="14.0" layoutY="89.0" />
-                        <Label layoutX="14.0" layoutY="53.0" prefHeight="22.0" prefWidth="94.0" text="Concepto">
+                        <Label layoutX="18.0" layoutY="53.0" prefHeight="22.0" prefWidth="94.0" text="Estado">
                            <font>
                               <Font name="Dubai Light" size="18.0" />
                            </font>
                         </Label>
-                        <Label layoutX="173.0" layoutY="53.0" prefHeight="22.0" prefWidth="94.0" text="Estado">
+                        <Label layoutX="178.0" layoutY="49.0" prefHeight="22.0" prefWidth="94.0" text="Fecha">
                            <font>
                               <Font name="Dubai Light" size="18.0" />
                            </font>
                         </Label>
-                        <ComboBox fx:id="cmbEstadoFiltroHD" layoutX="173.0" layoutY="89.0" prefWidth="150.0" />
-                        <Label layoutX="333.0" layoutY="49.0" prefHeight="22.0" prefWidth="94.0" text="Fecha">
-                           <font>
-                              <Font name="Dubai Light" size="18.0" />
-                           </font>
-                        </Label>
-                        <DatePicker fx:id="dateFechaFiltroHD" layoutX="333.0" layoutY="89.0" />
+                        <DatePicker fx:id="dateFechaFiltroHD" layoutX="178.0" layoutY="89.0" />
+                        <RadioButton fx:id="rdoSoloDeudasActivas" layoutX="22.0" layoutY="89.0" mnemonicParsing="false" text="Solo activas" />
                      </children></AnchorPane>
               </content>
             </Tab>

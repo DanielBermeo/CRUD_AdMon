@@ -5,7 +5,7 @@ public class Gastos {
 	
 
 	private int idGasto, monto, fondoTomado;
-	private String fecha, concepto, clasificacion;
+	private String fecha, concepto, clasificacion, fondoTomadoLetra;
 	
 	
 	public Gastos(int idGasto,String fecha, int monto,  String concepto, String clasificacion, int fondoTomado) {
@@ -42,6 +42,19 @@ public class Gastos {
 	public String getFecha() {
 		return fecha;
 	}
+
+	public String getFondoTomadoLetra() {
+		return fondoTomadoLetra;
+	}
+
+	public void setFondoTomadoLetra(String fondoTomadoLetra) {
+		this.fondoTomadoLetra = fondoTomadoLetra;
+	}
 	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return concepto;
+	}
 	
 }

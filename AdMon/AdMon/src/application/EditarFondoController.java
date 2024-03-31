@@ -102,6 +102,7 @@ public class EditarFondoController{
 						alertaCorrecto.setContentText("Insercion correcta");
 						alertaCorrecto.showAndWait();
 						
+						cn.cerrarConexion();
 					} catch (ClassNotFoundException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -130,4 +131,6 @@ public class EditarFondoController{
 		nombreFondo.setText(fondo.getNombre());
 		estadoDeseado.setText(""+fondo.getMontoDeseado());
 	}
+	
+	
 }

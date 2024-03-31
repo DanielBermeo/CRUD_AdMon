@@ -3,7 +3,7 @@ package objs;
 public class Ingresos {
 
 	int idIngreso, monto, fondoDestino;
-	String fecha,concepto;
+	String fecha,concepto,fondoDestinoLetra;
 	
 	
 	public Ingresos(int idIngreso, String fecha, int monto, String concepto, int fondoDestino ) {
@@ -33,6 +33,16 @@ public class Ingresos {
 	}
 	public String getFecha() {
 		return fecha;
+	}
+
+
+	public String getFondoDestinoLetra() {
+		return fondoDestinoLetra;
+	}
+
+
+	public void setFondoDestinoLetra(String fondoDestinoLetra) {
+		this.fondoDestinoLetra = fondoDestinoLetra;
 	}
 	
 	

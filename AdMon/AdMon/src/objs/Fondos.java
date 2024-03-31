@@ -53,6 +53,11 @@ public class Fondos {
 		return idFondo;
 	}
 	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return getNombre();
+	}
 	
 	
 	

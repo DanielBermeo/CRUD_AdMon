@@ -14,12 +14,14 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
-
+import javafx.event.EventType;
 import javafx.scene.control.Label;
-
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 import objs.Fondos;
 import objs.Gastos;
 import objs.Ingresos;
@@ -90,6 +92,8 @@ public class DetalloFondoController{
 			
 			ArrayList<Gastos> gastos = cn.gastosDeFondo(fondo.getIdFondo());
 			this.tblGastos.setItems(FXCollections.observableArrayList(gastos));
+			
+			
 			
 			// Cerrar conexion
 			cn.cerrarConexion();
